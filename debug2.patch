@@ -1,0 +1,11 @@
+--- lib/tpm2_alg_util.c
++++ lib/tpm2_alg_util.c
+@@ -1095,7 +1095,7 @@
+     }
+ 
+     if (s->scheme.scheme != TPM2_ALG_NULL) {
+-        LOG_ERR("Could not handle algorithm: \"%s\"", alg_details);
++        LOG_ERR("Could not handle algorithm in public_init 1: \"%s\"", alg_details);
+         return tool_rc_unsupported;
+     }
+

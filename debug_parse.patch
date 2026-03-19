@@ -1,0 +1,20 @@
+--- lib/tpm2_alg_util.c
++++ lib/tpm2_alg_util.c
+@@ -590,7 +590,7 @@
+     return true;
+ 
+     error:
+-    LOG_ERR("Could not handle algorithm spec: \"%s\"", alg_spec);
++    LOG_ERR("Could not handle algorithm spec: \"%s\" (prc=%d)", alg_spec, prc);
+     return false;
+ }
+ 
+@@ -1110,7 +1110,7 @@
+     TPM2B_PUBLIC tmp = *public;
+     bool res = tpm2_alg_util_handle_ext_alg(alg_details, &tmp);
+     if (!res) {
+-        LOG_ERR("Could not handle algorithm: \"%s\"", alg_details);
++        LOG_ERR("Could not handle algorithm: \"%s\" from tpm2_alg_util_handle_ext_alg", alg_details);
+         return tool_rc_unsupported;
+     }
+ 

@@ -1,0 +1,510 @@
+debug:tcti:src/tss2-tcti/tctildr.c:156:tctildr_conf_parse() name_conf: "mssim:host=127.0.0.1,port=2321" 
+debug:tcti:src/tss2-tcti/tctildr.c:174:tctildr_conf_parse() TCTI name: "mssim" 
+debug:tcti:src/tss2-tcti/tctildr.c:179:tctildr_conf_parse() TCTI conf: "host=127.0.0.1,port=2321" 
+debug:tcti:src/tss2-tcti/tctildr-dl.c:285:tctildr_get_tcti() name: "mssim", conf: "host=127.0.0.1,port=2321" 
+trace:tcti:src/tss2-tcti/tctildr-dl.c:124:tcti_from_file() Attempting to load TCTI file: mssim 
+debug:tcti:src/tss2-tcti/tctildr-dl.c:112:handle_from_name() Could not load TCTI file "mssim": mssim: cannot open shared object file: No such file or directory 
+trace:tcti:src/tss2-tcti/tctildr.c:109:tcti_from_info() Attempting to load TCTI info 
+trace:tcti:src/tss2-tcti/tctildr.c:116:tcti_from_info() Loaded TCTI info named: tcti-socket 
+trace:tcti:src/tss2-tcti/tctildr.c:117:tcti_from_info() TCTI description: TCTI module for communication with the Microsoft TPM2 Simulator. 
+trace:tcti:src/tss2-tcti/tctildr.c:118:tcti_from_info() TCTI config_help: Key / value string in the form "host=localhost,port=2321". 
+trace:tcti:src/tss2-tcti/tctildr.c:64:tcti_from_init() Initializing TCTI for config: host=127.0.0.1,port=2321 
+trace:tcti:src/tss2-tcti/tcti-mssim.c:532:Tss2_Tcti_Mssim_Init() tctiContext: 0x0, size: 0x7ffe7d55d940, conf: host=127.0.0.1,port=2321 
+trace:tcti:src/tss2-tcti/tcti-mssim.c:532:Tss2_Tcti_Mssim_Init() tctiContext: 0x5591070ac400, size: 0x7ffe7d55d940, conf: host=127.0.0.1,port=2321 
+trace:tcti:src/tss2-tcti/tcti-mssim.c:544:Tss2_Tcti_Mssim_Init() conf is not NULL 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:555:Tss2_Tcti_Mssim_Init() Dup'd conf string to: 0x5591070abd60 
+trace:tcti:src/util/key-value-parse.c:69:parse_key_value_string() kv_str: "host=127.0.0.1,port=2321", callback: 0x7f7b4c51bbb2, user_data: 0x7ffe7d55d8e0 
+debug:tcti:src/util/key-value-parse.c:76:parse_key_value_string() parsing key/value: host=127.0.0.1 
+trace:tcti:src/util/key-value-parse.c:32:parse_key_value() key_value_str: "host=127.0.0.1" and key_value_t: 0x7ffe7d55d870 
+trace:tcti:src/tss2-tcti/tcti-mssim.c:475:mssim_kv_callback() key_value: 0x7ffe7d55d870 and user_data: 0x7ffe7d55d8e0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:481:mssim_kv_callback() key: host / value: 127.0.0.1
+ 
+debug:tcti:src/util/key-value-parse.c:76:parse_key_value_string() parsing key/value: port=2321 
+trace:tcti:src/util/key-value-parse.c:32:parse_key_value() key_value_str: "port=2321" and key_value_t: 0x7ffe7d55d870 
+trace:tcti:src/tss2-tcti/tcti-mssim.c:475:mssim_kv_callback() key_value: 0x7ffe7d55d870 and user_data: 0x7ffe7d55d8e0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:481:mssim_kv_callback() key: port / value: 2321
+ 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:561:Tss2_Tcti_Mssim_Init() Initializing mssim TCTI with host: 127.0.0.1, port: 2321 
+debug:tcti:src/util-io/io.c:211:socket_connect() Resolving host 127.0.0.1 
+debug:tcti:src/util-io/io.c:236:socket_connect() Attempting TCP connection to host 127.0.0.1, port 2321 
+debug:tcti:src/util-io/io.c:211:socket_connect() Resolving host 127.0.0.1 
+debug:tcti:src/util-io/io.c:236:socket_connect() Attempting TCP connection to host 127.0.0.1, port 2322 
+trace:tcti:src/tss2-tcti/tcti-mssim.c:435:simulator_setup() Initializing TCTI context 0x5591070ac400 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d7ec to buffer 0x7ffe7d55d844 at index 0x0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:84:tcti_platform_command() Sending 4 bytes to socket 4: (size=4): 
+0000: 00000001                          ....
+debug:tcti:src/util-io/io.c:96:write_all() writing 4 bytes starting at 0x7ffe7d55d844 to fd 4 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 4 bytes to fd 4 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:107:tcti_platform_command() Received 4 bytes from socket 0x4: (size=4): 
+0000: 00000000                          ....
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x7ffe7d55d844 to buffer 0x7ffe7d55d820 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d7ec to buffer 0x7ffe7d55d844 at index 0x0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:84:tcti_platform_command() Sending 4 bytes to socket 4: (size=4): 
+0000: 0000000b                          ....
+debug:tcti:src/util-io/io.c:96:write_all() writing 4 bytes starting at 0x7ffe7d55d844 to fd 4 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 4 bytes to fd 4 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:107:tcti_platform_command() Received 4 bytes from socket 0x4: (size=4): 
+0000: 00000000                          ....
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x7ffe7d55d844 to buffer 0x7ffe7d55d820 at index 0x0 
+debug:tcti:src/tss2-tcti/tctildr.c:101:tcti_from_init() Initialized TCTI for config: host=127.0.0.1,port=2321 
+info:tcti:src/tss2-tcti/tctildr.c:125:tcti_from_info() Initialized TCTI named: tcti-socket 
+debug:tcti:src/tss2-tcti/tctildr-dl.c:150:tcti_from_file() Initialized TCTI file: mssim 
+trace:esys:src/tss2-esys/api/Esys_GetCapability.c:154:Esys_GetCapability_Async() context=0x5591070ac4d0, capability=0, property=0,propertyCount=7f 
+trace:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() Marshalling TPM2_ST from 0x7ffe7d55d5dc to buffer 0x5591070bc4f0 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 10 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d65c to buffer 0x5591070bc4f0 at index 0xa 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 14 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 14 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d65c to buffer 0x5591070bc4f0 at index 0xe 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 18 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 18 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d65c to buffer 0x5591070bc4f0 at index 0x12 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 22 
+trace:tcti:src/tss2-tcti/tcti-common.c:116:header_unmarshal() Parsing header from buffer: 0x5591070bc4f0 
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x7ffe7d55d61c at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55d620 at index 0x2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 6 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55d624 at index 0x6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 10 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:194:tcti_mssim_transmit() Sending command with TPM_CC 0x17a and size 22 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d56c to buffer 0x7ffe7d55d5bf at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 4 
+trace:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset non-NULL, initial value: 4 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() Marshalling UINT8 from 0x7ffe7d55d56c to buffer 0x7ffe7d55d5bf at index 0x4 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset parameter non-NULL, updated to 5 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 5 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d56c to buffer 0x7ffe7d55d5bf at index 0x5 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 9 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 9 bytes to socket 3: (size=9): 
+0000: 000000080000000016                .........
+debug:tcti:src/util-io/io.c:96:write_all() writing 9 bytes starting at 0x7ffe7d55d5bf to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 9 bytes to fd 3 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 22 bytes to socket 3: (size=22): 
+0000: 8001000000160000017a000000000000  .........z......
+0010: 00000000007f                      ......
+debug:tcti:src/util-io/io.c:96:write_all() writing 22 bytes starting at 0x5591070bc4f0 to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 22 bytes to fd 3 
+trace:esys:src/tss2-esys/api/Esys_GetCapability.c:238:Esys_GetCapability_Finish() context=0x5591070ac4d0, moreData=0x7ffe7d55d9af, capabilityData=0x7ffe7d55d9b0 
+debug:tcti:src/util-io/io.c:55:read_all() reading 4 bytes from fd 3 to buffer at 0x7ffe7d55d7f4 
+debug:tcti:src/util-io/io.c:82:read_all() read 4 bytes from fd 3: (size=4): 
+0000: 00000073                          ...s
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x7ffe7d55d7f4 to buffer 0x5591070ac450 at index 0x0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:349:tcti_mssim_receive() response size: 115 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:365:tcti_mssim_receive() Reading response of size 115 
+debug:tcti:src/util-io/io.c:55:read_all() reading 115 bytes from fd 3 to buffer at 0x5591070bc4f0 
+debug:tcti:src/util-io/io.c:82:read_all() read 115 bytes from fd 3: (size=115): 
+0000: 80010000007300000000000000000000  .....s..........
+0010: 00001000050000010400080000030c00  ................
+0020: 0a000000060012000000040013000000  ................
+0030: 02001b00000501002000000404002100  ..............!.
+0040: 00040400220000040400230000000900  ....".....#.....
+0050: 2500000008003f000001020043000002  %.....?.....C...
+0060: 0288a00000040988a10000040988a200  ................
+0070: 000409                            ...
+debug:tcti:src/tss2-tcti/tcti-mssim.c:379:tcti_mssim_receive() Response buffer received: (size=115): 
+0000: 80010000007300000000000000000000  .....s..........
+0010: 00001000050000010400080000030c00  ................
+0020: 0a000000060012000000040013000000  ................
+0030: 02001b00000501002000000404002100  ..............!.
+0040: 00040400220000040400230000000900  ....".....#.....
+0050: 2500000008003f000001020043000002  %.....?.....C...
+0060: 0288a00000040988a10000040988a200  ................
+0070: 000409                            ...
+debug:tcti:src/util-io/io.c:55:read_all() reading 4 bytes from fd 3 to buffer at 0x7ffe7d55d7d0 
+debug:tcti:src/util-io/io.c:82:read_all() read 4 bytes from fd 3: (size=4): 
+0000: 00000000                          ....
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x5591070bc4be at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070bc4c0 at index 0x2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 6 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070bc4c4 at index 0x6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 10 
+trace:esys:src/tss2-esys/esys_iutil.c:1312:iesys_check_response() No auths to verify 
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x7ffe7d55d806 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:153:Tss2_MU_UINT8_Unmarshal() offset non-NULL, initial value: 10 
+debug:marshal:src/tss2-mu/base-types.c:153:Tss2_MU_UINT8_Unmarshal() Unmarshaling UINT8 from 0x5591070bc4f0 to buffer 0x7ffe7d55d9af at index 0xa 
+debug:marshal:src/tss2-mu/base-types.c:153:Tss2_MU_UINT8_Unmarshal() offset parameter non-NULL, updated to 11 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 11 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55d858 at index 0xb 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 15 
+debug:marshal:src/tss2-mu/tpms-types.c:1543:Tss2_MU_TPMS_CAPABILITY_DATA_Unmarshal() Unmarshaling TPMS_CAPABILITY_DATA from 0x5591070cc470 to buffer 0x5591070bc4f0 at index 0xb 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 11 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070cc470 at index 0xb 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 15 
+debug:marshal:src/tss2-mu/tpmu-types.c:516:Tss2_MU_TPMU_CAPABILITIES_Unmarshal() Unmarshalling TPMU_CAPABILITIES, selector 0x0 
+trace:marshal:src/tss2-mu/tpml-types.c:151:Tss2_MU_TPML_ALG_PROPERTY_Unmarshal() offset non-NULL, initial value: 15 
+debug:marshal:src/tss2-mu/tpml-types.c:151:Tss2_MU_TPML_ALG_PROPERTY_Unmarshal() Unmarshaling TPML_ALG_PROPERTY from 0x5591070bc4f0 to buffer 0x5591070cc474 at index 0xf 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 15 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55d364 at index 0xf 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 19 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc478 to buffer 0x5591070bc4f0 at index 0x13 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 19 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc478 at index 0x13 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 21 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 21 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc47c at index 0x15 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 25 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc480 to buffer 0x5591070bc4f0 at index 0x19 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 25 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc480 at index 0x19 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 27 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 27 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc484 at index 0x1b 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 31 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc488 to buffer 0x5591070bc4f0 at index 0x1f 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 31 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc488 at index 0x1f 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 33 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 33 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc48c at index 0x21 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 37 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc490 to buffer 0x5591070bc4f0 at index 0x25 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 37 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc490 at index 0x25 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 39 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 39 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc494 at index 0x27 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 43 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc498 to buffer 0x5591070bc4f0 at index 0x2b 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 43 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc498 at index 0x2b 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 45 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 45 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc49c at index 0x2d 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 49 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4a0 to buffer 0x5591070bc4f0 at index 0x31 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 49 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4a0 at index 0x31 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 51 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 51 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4a4 at index 0x33 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 55 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4a8 to buffer 0x5591070bc4f0 at index 0x37 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 55 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4a8 at index 0x37 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 57 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 57 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4ac at index 0x39 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 61 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4b0 to buffer 0x5591070bc4f0 at index 0x3d 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 61 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4b0 at index 0x3d 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 63 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 63 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4b4 at index 0x3f 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 67 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4b8 to buffer 0x5591070bc4f0 at index 0x43 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 67 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4b8 at index 0x43 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 69 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 69 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4bc at index 0x45 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 73 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4c0 to buffer 0x5591070bc4f0 at index 0x49 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 73 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4c0 at index 0x49 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 75 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 75 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4c4 at index 0x4b 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 79 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4c8 to buffer 0x5591070bc4f0 at index 0x4f 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 79 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4c8 at index 0x4f 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 81 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 81 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4cc at index 0x51 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 85 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4d0 to buffer 0x5591070bc4f0 at index 0x55 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 85 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4d0 at index 0x55 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 87 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 87 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4d4 at index 0x57 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 91 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4d8 to buffer 0x5591070bc4f0 at index 0x5b 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 91 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4d8 at index 0x5b 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 93 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 93 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4dc at index 0x5d 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 97 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4e0 to buffer 0x5591070bc4f0 at index 0x61 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 97 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4e0 at index 0x61 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 99 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 99 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4e4 at index 0x63 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 103 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4e8 to buffer 0x5591070bc4f0 at index 0x67 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 103 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4e8 at index 0x67 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 105 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 105 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4ec at index 0x69 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 109 
+debug:marshal:src/tss2-mu/tpms-types.c:976:Tss2_MU_TPMS_ALG_PROPERTY_Unmarshal() Unmarshaling TPMS_ALG_PROPERTY from 0x5591070cc4f0 to buffer 0x5591070bc4f0 at index 0x6d 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 109 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x5591070cc4f0 at index 0x6d 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 111 
+trace:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset non-NULL, initial value: 111 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() Unmarshaling TPMA_ALGORITHM from 0x5591070bc4f0 to buffer 0x5591070cc4f4 at index 0x6f 
+debug:marshal:src/tss2-mu/tpma-types.c:139:Tss2_MU_TPMA_ALGORITHM_Unmarshal() offset parameter non-NULL, updated to 115 
+debug:marshal:src/tss2-mu/tpml-types.c:151:Tss2_MU_TPML_ALG_PROPERTY_Unmarshal() offset parameter non-NULL, updated to 115 
+trace:esys:src/tss2-esys/api/Esys_StartAuthSession.c:191:Esys_StartAuthSession_Async() context=0x5591070ac4d0, tpmKey=fff, bind=fff,nonceCaller=(nil), sessionType=00, symmetric=0x5591070cc3ca,authHash=0012 
+trace:esys_crypto:src/tss2-esys/esys_crypto.c:33:iesys_crypto_hash_get_digest_size() call: hashAlg=18 size=0x7ffe7d55d058 
+trace:esys_crypto:src/tss2-esys/esys_crypto.c:58:iesys_crypto_hash_get_digest_size() return: *size=32 
+trace:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() Marshalling TPM2_ST from 0x7ffe7d55ceec to buffer 0x5591070bc4f0 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 10 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55cf6c to buffer 0x5591070bc4f0 at index 0xa 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 14 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 14 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55cf6c to buffer 0x5591070bc4f0 at index 0xe 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 18 
+debug:marshal:src/tss2-mu/tpm2b-types.c:294:Tss2_MU_TPM2B_NONCE_Marshal() offset non-NULL, initial value: 18 
+debug:marshal:src/tss2-mu/tpm2b-types.c:294:Tss2_MU_TPM2B_NONCE_Marshal() Marshalling TPM2B_NONCE from 0x7ffe7d55cf58 to buffer 0x5591070bc4f0 at index 0x12, buffer size 65000, object size 32 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 18 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55cf1c to buffer 0x5591070bc4f0 at index 0x12 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 20 
+debug:marshal:src/tss2-mu/tpm2b-types.c:294:Tss2_MU_TPM2B_NONCE_Marshal() offset parameter non-NULL, updated to 52 
+debug:marshal:src/tss2-mu/tpm2b-types.c:282:Tss2_MU_TPM2B_ENCRYPTED_SECRET_Marshal() offset non-NULL, initial value: 52 
+debug:marshal:src/tss2-mu/tpm2b-types.c:282:Tss2_MU_TPM2B_ENCRYPTED_SECRET_Marshal() Marshalling TPM2B_ENCRYPTED_SECRET from 0x7ffe7d55cf58 to buffer 0x5591070bc4f0 at index 0x34, buffer size 65000, object size 0 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 52 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55cf1c to buffer 0x5591070bc4f0 at index 0x34 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 54 
+debug:marshal:src/tss2-mu/tpm2b-types.c:282:Tss2_MU_TPM2B_ENCRYPTED_SECRET_Marshal() offset parameter non-NULL, updated to 54 
+trace:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset non-NULL, initial value: 54 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() Marshalling UINT8 from 0x7ffe7d55cf6c to buffer 0x5591070bc4f0 at index 0x36 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset parameter non-NULL, updated to 55 
+debug:marshal:src/tss2-mu/tpmt-types.c:518:Tss2_MU_TPMT_SYM_DEF_Marshal() Marshalling TPMT_SYM_DEF from 0x5591070cc3ca to buffer 0x5591070bc4f0 at index 0x37 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 55 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55cf1c to buffer 0x5591070bc4f0 at index 0x37 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 57 
+debug:marshal:src/tss2-mu/tpmu-types.c:606:Tss2_MU_TPMU_SYM_KEY_BITS_Marshal() Marshalling TPMU_SYM_KEY_BITS, selector 0x10 
+debug:marshal:src/tss2-mu/tpmu-types.c:606:Tss2_MU_TPMU_SYM_KEY_BITS_Marshal() ALG_NULL selector skipping 
+debug:marshal:src/tss2-mu/tpmu-types.c:644:Tss2_MU_TPMU_SYM_MODE_Marshal() Marshalling TPMU_SYM_MODE, selector 0x10 
+debug:marshal:src/tss2-mu/tpmu-types.c:644:Tss2_MU_TPMU_SYM_MODE_Marshal() ALG_NULL selector skipping 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 57 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55cf6c to buffer 0x5591070bc4f0 at index 0x39 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 59 
+trace:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() Marshalling TPM2_HANDLE from 0x7ffe7d55cfdc to buffer 0x7ffe7d55d47e at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() offset parameter non-NULL, updated to 4 
+trace:tcti:src/tss2-tcti/tcti-common.c:116:header_unmarshal() Parsing header from buffer: 0x5591070bc4f0 
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x7ffe7d55cf4c at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55cf50 at index 0x2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 6 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55cf54 at index 0x6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 10 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:194:tcti_mssim_transmit() Sending command with TPM_CC 0x176 and size 59 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55ce9c to buffer 0x7ffe7d55ceef at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 4 
+trace:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset non-NULL, initial value: 4 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() Marshalling UINT8 from 0x7ffe7d55ce9c to buffer 0x7ffe7d55ceef at index 0x4 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset parameter non-NULL, updated to 5 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 5 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55ce9c to buffer 0x7ffe7d55ceef at index 0x5 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 9 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 9 bytes to socket 3: (size=9): 
+0000: 00000008000000003b                ........;
+debug:tcti:src/util-io/io.c:96:write_all() writing 9 bytes starting at 0x7ffe7d55ceef to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 9 bytes to fd 3 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 59 bytes to socket 3: (size=59): 
+0000: 80010000003b00000176400000074000  .....;...v@...@.
+0010: 0007002029fe8d7eefa2417aa3435e42  ....)..~..Az.C^B
+0020: 31657562e62a9ef2ff50ceaeb3f94a2d  1eub.*...P....J-
+0030: 45e5779100000000100012            E.w........
+debug:tcti:src/util-io/io.c:96:write_all() writing 59 bytes starting at 0x5591070bc4f0 to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 59 bytes to fd 3 
+trace:esys:src/tss2-esys/api/Esys_StartAuthSession.c:315:Esys_StartAuthSession_Finish() context=0x5591070ac4d0, sessionHandle=0x5591070cc888 
+debug:tcti:src/util-io/io.c:55:read_all() reading 4 bytes from fd 3 to buffer at 0x7ffe7d55d794 
+debug:tcti:src/util-io/io.c:82:read_all() read 4 bytes from fd 3: (size=4): 
+0000: 00000030                          ...0
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x7ffe7d55d794 to buffer 0x5591070ac450 at index 0x0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:349:tcti_mssim_receive() response size: 48 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:365:tcti_mssim_receive() Reading response of size 48 
+debug:tcti:src/util-io/io.c:55:read_all() reading 48 bytes from fd 3 to buffer at 0x5591070bc4f0 
+debug:tcti:src/util-io/io.c:82:read_all() read 48 bytes from fd 3: (size=48): 
+0000: 80010000003000000000020000000020  .....0..........
+0010: 44c497daad5b79c1eeafcf9da706a654  D....[y........T
+0020: 645a3be79929656090b3c0387e541d0a  dZ;..)e`...8~T..
+debug:tcti:src/tss2-tcti/tcti-mssim.c:379:tcti_mssim_receive() Response buffer received: (size=48): 
+0000: 80010000003000000000020000000020  .....0..........
+0010: 44c497daad5b79c1eeafcf9da706a654  D....[y........T
+0020: 645a3be79929656090b3c0387e541d0a  dZ;..)e`...8~T..
+debug:tcti:src/util-io/io.c:55:read_all() reading 4 bytes from fd 3 to buffer at 0x7ffe7d55d770 
+debug:tcti:src/util-io/io.c:82:read_all() read 4 bytes from fd 3: (size=4): 
+0000: 00000000                          ....
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x5591070bc4be at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070bc4c0 at index 0x2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 6 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070bc4c4 at index 0x6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 10 
+trace:esys:src/tss2-esys/esys_iutil.c:1312:iesys_check_response() No auths to verify 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 10 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070cd298 at index 0xa 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 14 
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x7ffe7d55d7b6 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+debug:marshal:src/tss2-mu/tpm2b-types.c:295:Tss2_MU_TPM2B_NONCE_Unmarshal() offset non-NULL, initial value: 14 
+trace:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset non-NULL, initial value: 14 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() Unmarshaling UINT16 from 0x5591070bc4f0 to buffer 0x7ffe7d55d7ba at index 0xe 
+debug:marshal:src/tss2-mu/base-types.c:155:Tss2_MU_UINT16_Unmarshal() offset parameter non-NULL, updated to 16 
+debug:marshal:src/tss2-mu/tpm2b-types.c:295:Tss2_MU_TPM2B_NONCE_Unmarshal() Unmarshaling TPM2B_NONCE from 0x5591070bc4f0 to buffer 0x7ffe7d55d890 at index 0x10, buffer size 65000, object size 32 
+debug:marshal:src/tss2-mu/tpm2b-types.c:295:Tss2_MU_TPM2B_NONCE_Unmarshal() offset parameter non-NULL, updated to 48 
+trace:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() Marshalling TPM2_HANDLE from 0x7ffe7d55d80c to buffer 0x5591070cd29e at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() offset parameter non-NULL, updated to 4 
+trace:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() Marshalling TPM2_HANDLE from 0x7ffe7d55da7c to buffer 0x5591070cd91e at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:168:Tss2_MU_TPM2_HANDLE_Marshal() offset parameter non-NULL, updated to 4 
+trace:esys:src/tss2-esys/api/Esys_Create.c:180:Esys_Create_Async() context=0x5591070ac4d0, parentHandle=107, inSensitive=0x559100566f78,inPublic=0x5591005670c0, outsideInfo=0x559100567328, creationPCR=0x55910056736c 
+trace:esys_crypto:src/tss2-esys/esys_crypto.c:33:iesys_crypto_hash_get_digest_size() call: hashAlg=11 size=0x7ffe7d55d818 
+trace:esys_crypto:src/tss2-esys/esys_crypto.c:58:iesys_crypto_hash_get_digest_size() return: *size=32 
+trace:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() Marshalling TPM2_ST from 0x7ffe7d55d77c to buffer 0x5591070bc4f0 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 10 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d7fc to buffer 0x5591070bc4f0 at index 0xa 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 14 
+debug:marshal:src/tss2-mu/tpm2b-types.c:312:Tss2_MU_TPM2B_SENSITIVE_CREATE_Marshal() offset non-NULL, initial value: 14 
+debug:marshal:src/tss2-mu/tpm2b-types.c:312:Tss2_MU_TPM2B_SENSITIVE_CREATE_Marshal() Marshalling TPM2B_SENSITIVE_CREATE from 0x7ffe7d55d7e8 to buffer 0x5591070bc4f0 at index 0xe, buffer size 65000, object size 0 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 14 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d7ac to buffer 0x5591070bc4f0 at index 0xe 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 16 
+debug:marshal:src/tss2-mu/tpms-types.c:1190:Tss2_MU_TPMS_SENSITIVE_CREATE_Marshal() Marshalling TPMS_SENSITIVE_CREATE from 0x7ffe7d55d798 to buffer 0x5591070bc4f0 at index 0x10 
+debug:marshal:src/tss2-mu/tpm2b-types.c:256:Tss2_MU_TPM2B_DIGEST_Marshal() offset non-NULL, initial value: 16 
+debug:marshal:src/tss2-mu/tpm2b-types.c:256:Tss2_MU_TPM2B_DIGEST_Marshal() Marshalling TPM2B_DIGEST from 0x7ffe7d55d748 to buffer 0x5591070bc4f0 at index 0x10, buffer size 65000, object size 0 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 16 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d70c to buffer 0x5591070bc4f0 at index 0x10 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 18 
+debug:marshal:src/tss2-mu/tpm2b-types.c:256:Tss2_MU_TPM2B_DIGEST_Marshal() offset parameter non-NULL, updated to 18 
+debug:marshal:src/tss2-mu/tpm2b-types.c:274:Tss2_MU_TPM2B_SENSITIVE_DATA_Marshal() offset non-NULL, initial value: 18 
+debug:marshal:src/tss2-mu/tpm2b-types.c:274:Tss2_MU_TPM2B_SENSITIVE_DATA_Marshal() Marshalling TPM2B_SENSITIVE_DATA from 0x7ffe7d55d748 to buffer 0x5591070bc4f0 at index 0x12, buffer size 65000, object size 0 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 18 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d70c to buffer 0x5591070bc4f0 at index 0x12 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 20 
+debug:marshal:src/tss2-mu/tpm2b-types.c:274:Tss2_MU_TPM2B_SENSITIVE_DATA_Marshal() offset parameter non-NULL, updated to 20 
+debug:marshal:src/tss2-mu/tpm2b-types.c:312:Tss2_MU_TPM2B_SENSITIVE_CREATE_Marshal() offset parameter non-NULL, updated to 20 
+debug:marshal:src/tss2-mu/tpm2b-types.c:316:Tss2_MU_TPM2B_PUBLIC_Marshal() offset non-NULL, initial value: 20 
+debug:marshal:src/tss2-mu/tpm2b-types.c:316:Tss2_MU_TPM2B_PUBLIC_Marshal() Marshalling TPM2B_PUBLIC from 0x7ffe7d55d7e8 to buffer 0x5591070bc4f0 at index 0x14, buffer size 65000, object size 0 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 20 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d7ac to buffer 0x5591070bc4f0 at index 0x14 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 22 
+debug:marshal:src/tss2-mu/tpmt-types.c:718:Tss2_MU_TPMT_PUBLIC_Marshal() Marshalling TPMT_PUBLIC from 0x5591005670c4 to buffer 0x5591070bc4f0 at index 0x16 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 22 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d75c to buffer 0x5591070bc4f0 at index 0x16 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 24 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 24 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d75c to buffer 0x5591070bc4f0 at index 0x18 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 26 
+trace:marshal:src/tss2-mu/tpma-types.c:146:Tss2_MU_TPMA_OBJECT_Marshal() offset non-NULL, initial value: 26 
+debug:marshal:src/tss2-mu/tpma-types.c:146:Tss2_MU_TPMA_OBJECT_Marshal() Marshalling TPMA_OBJECT from 0x7ffe7d55d75c to buffer 0x5591070bc4f0 at index 0x1a 
+debug:marshal:src/tss2-mu/tpma-types.c:146:Tss2_MU_TPMA_OBJECT_Marshal() offset parameter non-NULL, updated to 30 
+debug:marshal:src/tss2-mu/tpm2b-types.c:256:Tss2_MU_TPM2B_DIGEST_Marshal() offset non-NULL, initial value: 30 
+debug:marshal:src/tss2-mu/tpm2b-types.c:256:Tss2_MU_TPM2B_DIGEST_Marshal() Marshalling TPM2B_DIGEST from 0x7ffe7d55d748 to buffer 0x5591070bc4f0 at index 0x1e, buffer size 65000, object size 0 
+trace:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset non-NULL, initial value: 30 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() Marshalling UINT16 from 0x7ffe7d55d70c to buffer 0x5591070bc4f0 at index 0x1e 
+debug:marshal:src/tss2-mu/base-types.c:154:Tss2_MU_UINT16_Marshal() offset parameter non-NULL, updated to 32 
+debug:marshal:src/tss2-mu/tpm2b-types.c:256:Tss2_MU_TPM2B_DIGEST_Marshal() offset parameter non-NULL, updated to 32 
+debug:marshal:src/tss2-mu/tpmu-types.c:1000:Tss2_MU_TPMU_PUBLIC_PARMS_Marshal() Marshalling TPMU_PUBLIC_PARMS, selector 0x88a1 
+ERROR:marshal:src/tss2-mu/tpmu-types.c:1000:Tss2_MU_TPMU_PUBLIC_PARMS_Marshal() wrong selector 0x88a1 return error 
+ERROR:esys:src/tss2-esys/api/Esys_Create.c:216:Esys_Create_Async() SAPI Prepare returned error. ErrorCode (0x0009000b) 
+ERROR:esys:src/tss2-esys/api/Esys_Create.c:107:Esys_Create() Error in async function ErrorCode (0x0009000b) 
+ERROR: Esys_Create(0x9000B) - mu:A parameter has a bad value
+trace:esys:src/tss2-esys/api/Esys_FlushContext.c:115:Esys_FlushContext_Async() context=0x5591070ac4d0, flushHandle=40468367 
+trace:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() Marshalling TPM2_ST from 0x7ffe7d55da6c to buffer 0x5591070bc4f0 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:162:Tss2_MU_TPM2_ST_Marshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 10 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55daec to buffer 0x5591070bc4f0 at index 0xa 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 14 
+trace:tcti:src/tss2-tcti/tcti-common.c:116:header_unmarshal() Parsing header from buffer: 0x5591070bc4f0 
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x7ffe7d55da9c at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55daa0 at index 0x2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 6 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x7ffe7d55daa4 at index 0x6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 10 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:194:tcti_mssim_transmit() Sending command with TPM_CC 0x165 and size 14 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d9ec to buffer 0x7ffe7d55da3f at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 4 
+trace:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset non-NULL, initial value: 4 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() Marshalling UINT8 from 0x7ffe7d55d9ec to buffer 0x7ffe7d55da3f at index 0x4 
+debug:marshal:src/tss2-mu/base-types.c:152:Tss2_MU_UINT8_Marshal() offset parameter non-NULL, updated to 5 
+trace:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset non-NULL, initial value: 5 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55d9ec to buffer 0x7ffe7d55da3f at index 0x5 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() offset parameter non-NULL, updated to 9 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 9 bytes to socket 3: (size=9): 
+0000: 00000008000000000e                .........
+debug:tcti:src/util-io/io.c:96:write_all() writing 9 bytes starting at 0x7ffe7d55da3f to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 9 bytes to fd 3 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 14 bytes to socket 3: (size=14): 
+0000: 80010000000e0000016502000000      .........e....
+debug:tcti:src/util-io/io.c:96:write_all() writing 14 bytes starting at 0x5591070bc4f0 to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 14 bytes to fd 3 
+trace:esys:src/tss2-esys/api/Esys_FlushContext.c:177:Esys_FlushContext_Finish() context=0x5591070ac4d0 
+debug:tcti:src/util-io/io.c:55:read_all() reading 4 bytes from fd 3 to buffer at 0x7ffe7d55dab4 
+debug:tcti:src/util-io/io.c:82:read_all() read 4 bytes from fd 3: (size=4): 
+0000: 0000000a                          ....
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x7ffe7d55dab4 to buffer 0x5591070ac450 at index 0x0 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:349:tcti_mssim_receive() response size: 10 
+debug:tcti:src/tss2-tcti/tcti-mssim.c:365:tcti_mssim_receive() Reading response of size 10 
+debug:tcti:src/util-io/io.c:55:read_all() reading 10 bytes from fd 3 to buffer at 0x5591070bc4f0 
+debug:tcti:src/util-io/io.c:82:read_all() read 10 bytes from fd 3: (size=10): 
+0000: 80010000000a00000000              ..........
+debug:tcti:src/tss2-tcti/tcti-mssim.c:379:tcti_mssim_receive() Response buffer received: (size=10): 
+0000: 80010000000a00000000              ..........
+debug:tcti:src/util-io/io.c:55:read_all() reading 4 bytes from fd 3 to buffer at 0x7ffe7d55da90 
+debug:tcti:src/util-io/io.c:82:read_all() read 4 bytes from fd 3: (size=4): 
+0000: 00000000                          ....
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x5591070bc4be at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070bc4c0 at index 0x2 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 6 
+trace:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset non-NULL, initial value: 6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() Unmarshaling UINT32 from 0x5591070bc4f0 to buffer 0x5591070bc4c4 at index 0x6 
+debug:marshal:src/tss2-mu/base-types.c:157:Tss2_MU_UINT32_Unmarshal() offset parameter non-NULL, updated to 10 
+trace:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset non-NULL, initial value: 0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() Unmarshaling TPM2_ST from 0x5591070bc4f0 to buffer 0x7ffe7d55daf6 at index 0x0 
+debug:marshal:src/tss2-mu/base-types.c:163:Tss2_MU_TPM2_ST_Unmarshal() offset parameter non-NULL, updated to 2 
+ERROR: Unable to run create
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55db6c to buffer 0x7ffe7d55dba4 at index 0x0 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 4 bytes to socket 4: (size=4): 
+0000: 00000014                          ....
+debug:tcti:src/util-io/io.c:96:write_all() writing 4 bytes starting at 0x7ffe7d55dba4 to fd 4 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 4 bytes to fd 4 
+debug:marshal:src/tss2-mu/base-types.c:156:Tss2_MU_UINT32_Marshal() Marshalling UINT32 from 0x7ffe7d55db6c to buffer 0x7ffe7d55dba4 at index 0x0 
+debug:tcti:src/util-io/io.c:133:socket_xmit_buf() Writing 4 bytes to socket 3: (size=4): 
+0000: 00000014                          ....
+debug:tcti:src/util-io/io.c:96:write_all() writing 4 bytes starting at 0x7ffe7d55dba4 to fd 3 
+debug:tcti:src/util-io/io.c:104:write_all() wrote 4 bytes to fd 3 

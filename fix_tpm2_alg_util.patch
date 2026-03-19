@@ -1,0 +1,10 @@
+--- lib/tpm2_alg_util.c
++++ lib/tpm2_alg_util.c
+@@ -681,7 +681,7 @@
+     return true;
+ 
+     error:
+-    LOG_ERR("Could not handle algorithm spec: \"%s\" (prc=%d)", alg_spec, prc);
++    LOG_ERR("Could not handle algorithm spec: \"%s\"", alg_spec);
+     return false;
+ }

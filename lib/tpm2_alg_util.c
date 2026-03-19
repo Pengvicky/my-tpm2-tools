@@ -286,6 +286,16 @@ static alg_parser_rc handle_scheme_sign(const char *scheme,
     return alg_parser_rc_continue;
 }
 
+
+static alg_parser_rc handle_scloud(TPM2_ALG_ID type, TPM2B_PUBLIC *public) {
+    public->publicArea.type = type;
+    public->publicArea.parameters.asymDetail.symmetric.algorithm = TPM2_ALG_NULL;
+    public->publicArea.parameters.asymDetail.symmetric.keyBits.aes = 0;
+    public->publicArea.parameters.asymDetail.symmetric.mode.aes = TPM2_ALG_NULL;
+    public->publicArea.parameters.asymDetail.scheme.scheme = TPM2_ALG_NULL;
+    return alg_parser_rc_continue;
+}
+
 static alg_parser_rc handle_rsa(const char *ext, TPM2B_PUBLIC *public) {
 
     public->publicArea.type = TPM2_ALG_RSA;
@@ -428,7 +438,11 @@ static alg_parser_rc handle_keyedhash(TPM2B_PUBLIC *public) {
 
 static alg_parser_rc handle_object(const char *object, TPM2B_PUBLIC *public) {
 
-    if (!strncmp(object, "rsa", 3)) {
+    
+    if (!strncmp(object, "sm2", 3)) {
+        object += 3;
+        return handle_ecc("_sm2", public);
+    } else if (!strncmp(object, "rsa", 3)) {
         object += 3;
         return handle_rsa(object, public);
     } else if (!strncmp(object, "ecc", 3)) {
@@ -443,7 +457,16 @@ static alg_parser_rc handle_object(const char *object, TPM2B_PUBLIC *public) {
     } else if (!strncmp(object, "sm4", 3)) {
         object += (object[3] == '_') ? 4 : 3;
         return handle_sm4(object, public);
-    } else if (!strcmp(object, "hmac")) {
+    
+    } else if (!strncmp(object, "scloudplus_l1", 13)) {
+        return handle_scloud(TPM2_ALG_SCLOUDPLUS_L1, public);
+    } else if (!strncmp(object, "scloudplus_l3", 13)) {
+        return handle_scloud(TPM2_ALG_SCLOUDPLUS_L3, public);
+    } else if (!strncmp(object, "scloudplus_l5", 13)) {
+        return handle_scloud(TPM2_ALG_SCLOUDPLUS_L5, public);
+    } else if (!strncmp(object, "aigis_sig", 9)) {
+        return handle_scloud(TPM2_ALG_AIGIS_SIG, public);
+} else if (!strcmp(object, "hmac")) {
         return handle_hmac(public);
     } else if (!strcmp(object, "xor")) {
         return handle_xor(public);

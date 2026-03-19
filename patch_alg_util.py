@@ -1,0 +1,30 @@
+import re
+
+with open('lib/tpm2_alg_util.c', 'r') as f:
+    content = f.read()
+
+content = content.replace("case TPM2_ALG_ECC:", """case TPM2_ALG_ECC:
+    case TPM2_ALG_SCLOUDPLUS_L1:
+    case TPM2_ALG_SCLOUDPLUS_L3:
+    case TPM2_ALG_SCLOUDPLUS_L5:
+    case TPM2_ALG_AIGIS_SIG:""")
+
+content = content.replace("""static alg_parser_rc handle_scheme_sign(const char *scheme,
+        TPM2B_PUBLIC *public) {""", """static alg_parser_rc handle_scheme_sign(const char *scheme,
+        TPM2B_PUBLIC *public) {
+        
+    if (public->publicArea.type == TPM2_ALG_SCLOUDPLUS_L1 ||
+        public->publicArea.type == TPM2_ALG_SCLOUDPLUS_L3 ||
+        public->publicArea.type == TPM2_ALG_SCLOUDPLUS_L5 ||
+        public->publicArea.type == TPM2_ALG_AIGIS_SIG) {
+        
+        if (!scheme || scheme[0] == '\\0' || !strcmp(scheme, "null")) {
+            public->publicArea.parameters.asymDetail.scheme.scheme = TPM2_ALG_NULL;
+            return alg_parser_rc_done;
+        } else {
+            return alg_parser_rc_error;
+        }
+    }""")
+
+with open('lib/tpm2_alg_util.c', 'w') as f:
+    f.write(content)

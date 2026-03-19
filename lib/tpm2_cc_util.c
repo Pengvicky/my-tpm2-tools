@@ -129,6 +129,8 @@ static const cc_map _g_map[] = {
     ADDCC(TPM2_CC_AC_GetCapability),
     ADDCC(TPM2_CC_AC_Send),
     ADDCC(TPM2_CC_Policy_AC_SendSelect),
+    ADDCC(TPM2_CC_Encapsulate),
+    ADDCC(TPM2_CC_Decapsulate),
     ADDCC(TPM2_CC_Vendor_TCG_Test),
 };
 

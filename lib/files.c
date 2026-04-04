@@ -136,10 +136,11 @@ bool files_get_file_size(FILE *fp, unsigned long *file_size, const char *path) {
     return true;
 }
 
-bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT16 *size,
+bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT32 *size,
         const char *path) {
 
     unsigned long file_size;
+    printf("DEBUG: *size is %u, sizeof(TPM2B_PRIVATE) is %zu\n", *size, sizeof(TPM2B_PRIVATE));
     bool result = files_get_file_size(f, &file_size, path);
     if (!result) {
         /* get_file_size() logs errors */
@@ -172,7 +173,7 @@ bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT16 *size,
     return true;
 }
 
-TEST_WEAK bool files_load_bytes_from_path(const char *path, UINT8 *buf, UINT16 *size) {
+TEST_WEAK bool files_load_bytes_from_path(const char *path, UINT8 *buf, UINT32 *size) {
 
     if (!buf || !size || !path) {
         return false;
@@ -269,7 +270,7 @@ bool files_save_context(TPMS_CONTEXT *context, FILE *stream) {
     }
 
     // U16 LENGTH
-    result = files_write_16(stream, context->contextBlob.size);
+    result = files_write_32(stream, context->contextBlob.size);
     if (!result) {
         LOG_ERR("Could not write contextBob size");
         goto out;
@@ -373,14 +374,14 @@ static bool load_tpm_context_file(FILE *fstream, TPMS_CONTEXT *context) {
         goto out;
     }
 
-    result = files_read_16(fstream, &context->contextBlob.size);
+    result = files_read_32(fstream, &context->contextBlob.size);
     if (!result) {
         LOG_ERR("Error reading contextBlob.size!");
         goto out;
     }
 
     if (context->contextBlob.size > sizeof(context->contextBlob.buffer)) {
-        LOG_ERR("Size mismatch found on contextBlob, got %"PRIu16" expected "
+        LOG_ERR("Size mismatch found on contextBlob, got %"PRIu32" expected "
                 "less than or equal to %zu", context->contextBlob.size,
                 sizeof(context->contextBlob.buffer));
         result = false;
@@ -624,9 +625,9 @@ bool files_read_header(FILE *out, uint32_t *version) {
 }
 
 bool files_load_bytes_from_buffer_or_file_or_stdin(const char *input_buffer,
-        const char *path, UINT16 *size, BYTE *buf) {
+        const char *path, UINT32 *size, BYTE *buf) {
 
-    UINT16 upper_bound = *size;
+    UINT32 upper_bound = *size;
     if (!upper_bound) {
         return true;
     }
@@ -700,7 +701,7 @@ tool_rc files_save_ESYS_TR(ESYS_CONTEXT *ectx, ESYS_TR handle, const char *path)
     bool files_load_##name(const char *path, type *name) { \
     \
         UINT8 buffer[sizeof(*name)]; \
-        UINT16 size = sizeof(buffer); \
+        UINT32 size = sizeof(buffer); \
         bool res = files_load_bytes_from_path(path, buffer, &size); \
         if (!res) { \
             return false; \
@@ -721,7 +722,7 @@ tool_rc files_save_ESYS_TR(ESYS_CONTEXT *ectx, ESYS_TR handle, const char *path)
     bool files_load_##name##_file(FILE *f, const char *path, type *name) { \
     \
         UINT8 buffer[sizeof(*name)]; \
-        UINT16 size = sizeof(buffer); \
+        UINT32 size = sizeof(buffer); \
         bool res = file_read_bytes_from_file(f, buffer, &size, path); \
         if (!res) { \
             return false; \
@@ -742,7 +743,7 @@ tool_rc files_save_ESYS_TR(ESYS_CONTEXT *ectx, ESYS_TR handle, const char *path)
     bool files_load_##name##_silent(const char *path, type *name) { \
     \
         UINT8 buffer[sizeof(*name)]; \
-        UINT16 size = sizeof(buffer); \
+        UINT32 size = sizeof(buffer); \
         bool res = files_load_bytes_from_path(path, buffer, &size); \
         if (!res) { \
             return false; \

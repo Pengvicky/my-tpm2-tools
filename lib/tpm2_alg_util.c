@@ -181,7 +181,7 @@ static alg_parser_rc handle_scheme_sign(const char *scheme,
 
     if (!strcmp(buf_ptr, "null")) {
         public->publicArea.parameters.asymDetail.scheme.scheme = TPM2_ALG_NULL;
-        return alg_parser_rc_continue;
+        return alg_parser_rc_done;
     }
 
     char *halg = NULL;
@@ -283,7 +283,7 @@ static alg_parser_rc handle_scheme_sign(const char *scheme,
         }
     }
 
-    return alg_parser_rc_continue;
+    return alg_parser_rc_done;
 }
 
 
@@ -293,7 +293,7 @@ static alg_parser_rc handle_scloud(TPM2_ALG_ID type, TPM2B_PUBLIC *public) {
     public->publicArea.parameters.asymDetail.symmetric.keyBits.aes = 0;
     public->publicArea.parameters.asymDetail.symmetric.mode.aes = TPM2_ALG_NULL;
     public->publicArea.parameters.asymDetail.scheme.scheme = TPM2_ALG_NULL;
-    return alg_parser_rc_continue;
+    return alg_parser_rc_done;
 }
 
 static alg_parser_rc handle_rsa(const char *ext, TPM2B_PUBLIC *public) {
@@ -339,7 +339,7 @@ static alg_parser_rc handle_ecc(const char *ext, TPM2B_PUBLIC *public) {
     /* handle default ecc curve (NIST_P256) */
     if (ext == NULL || ext[0] == '\0') {
         e->curveID = TPM2_ECC_NIST_P256;
-        return alg_parser_rc_continue;
+        return alg_parser_rc_done;
     }
 
     if (ext[0] == '_') {
@@ -347,7 +347,7 @@ static alg_parser_rc handle_ecc(const char *ext, TPM2B_PUBLIC *public) {
         ext++;
         if (!strcmp(ext, "sm2_p256") || !strcmp(ext, "sm2")) {
             e->curveID = TPM2_ECC_SM2_P256;
-            return alg_parser_rc_continue;
+            return alg_parser_rc_done;
         } else if (strncmp(ext, "nist_p", 6)) {
             return alg_parser_rc_error;
         }
@@ -418,7 +418,7 @@ static alg_parser_rc handle_xor(TPM2B_PUBLIC *public) {
     public->publicArea.type = TPM2_ALG_KEYEDHASH;
     public->publicArea.parameters.keyedHashDetail.scheme.scheme = TPM2_ALG_XOR;
 
-    return alg_parser_rc_continue;
+    return alg_parser_rc_done;
 }
 
 static alg_parser_rc handle_hmac(TPM2B_PUBLIC *public) {
@@ -426,7 +426,7 @@ static alg_parser_rc handle_hmac(TPM2B_PUBLIC *public) {
     public->publicArea.type = TPM2_ALG_KEYEDHASH;
     public->publicArea.parameters.keyedHashDetail.scheme.scheme = TPM2_ALG_HMAC;
 
-    return alg_parser_rc_continue;
+    return alg_parser_rc_done;
 }
 
 static alg_parser_rc handle_keyedhash(TPM2B_PUBLIC *public) {

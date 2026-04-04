@@ -177,6 +177,7 @@ tpm2_tools = \
     tools/tpm2_readclock.c \
     tools/tpm2_readpublic.c \
     tools/tpm2_rsadecrypt.c \
+    tools/tpm2_encapsulate.c \
     tools/tpm2_rsaencrypt.c \
     tools/tpm2_send.c \
     tools/tpm2_selftest.c \

@@ -25,7 +25,7 @@
  * @return
  *  True on success, false otherwise.
  */
-bool files_load_bytes_from_path(const char *path, UINT8 *buf, UINT16 *size);
+bool files_load_bytes_from_path(const char *path, UINT8 *buf, UINT32 *size);
 
 /**
  * Like files_load_bytes_from_path() but uses a FILE pointer.
@@ -40,7 +40,7 @@ bool files_load_bytes_from_path(const char *path, UINT8 *buf, UINT16 *size);
  * @return
  *  True on success, false otherwise.
  */
-bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT16 *size,
+bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT32 *size,
         const char *path);
 
 /**
@@ -57,7 +57,7 @@ bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT16 *size,
  *  True on success or false otherwise.
  */
 bool files_load_bytes_from_buffer_or_file_or_stdin(const char *input_buffer,
-        const char *path, UINT16 *size, BYTE *buf);
+        const char *path, UINT32 *size, BYTE *buf);
 
 /**
  * Similar to files_write_bytes(), in that it writes an array of bytes to disk,

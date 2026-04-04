@@ -221,7 +221,7 @@ bool tpm2_util_bin_from_hex_or_file(const char *input, UINT16 *len, BYTE *buffer
         goto out;
     }
 
-    result = file_read_bytes_from_file(f, buffer, len, input);
+    UINT32 tmp_len = *len; result = file_read_bytes_from_file(f, buffer, &tmp_len, input); *len = (UINT16)tmp_len;
     fclose(f);
 out:
     if (!result) {

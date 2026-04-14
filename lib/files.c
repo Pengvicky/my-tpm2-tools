@@ -140,7 +140,6 @@ bool file_read_bytes_from_file(FILE *f, UINT8 *buf, UINT32 *size,
         const char *path) {
 
     unsigned long file_size;
-    printf("DEBUG: *size is %u, sizeof(TPM2B_PRIVATE) is %zu\n", *size, sizeof(TPM2B_PRIVATE));
     bool result = files_get_file_size(f, &file_size, path);
     if (!result) {
         /* get_file_size() logs errors */

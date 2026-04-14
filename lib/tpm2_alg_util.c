@@ -466,6 +466,12 @@ static alg_parser_rc handle_object(const char *object, TPM2B_PUBLIC *public) {
         return handle_scloud(TPM2_ALG_SCLOUDPLUS_L5, public);
     } else if (!strncmp(object, "aigis_sig", 9)) {
         return handle_scloud(TPM2_ALG_AIGIS_SIG, public);
+    } else if (!strncmp(object, "mldsa44", 7)) {
+        return handle_scloud(0x00B0, public);
+    } else if (!strncmp(object, "mldsa65", 7)) {
+        return handle_scloud(0x00B1, public);
+    } else if (!strncmp(object, "mldsa87", 7)) {
+        return handle_scloud(0x00B2, public);
 } else if (!strcmp(object, "hmac")) {
         return handle_hmac(public);
     } else if (!strcmp(object, "xor")) {

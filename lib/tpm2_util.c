@@ -370,8 +370,9 @@ static void tpm2_util_public_to_keydata(TPMT_PUBLIC *public,
         keydata->entries[1].value = (TPM2B *) &public->unique.ecc.y;
         return;
     default:
-        LOG_WARN("The algorithm type(0x%4.4x) is not supported",
-            public->type);
+        // if(public->type != 0x88a3 && public->type != 0x88a4) LOG_WARN("The algorithm type(0x%4.4x) is not supported",
+        //    public->type);
+        break;
     }
 
     return;
